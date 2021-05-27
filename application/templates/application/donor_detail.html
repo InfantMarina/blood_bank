@@ -1,0 +1,22 @@
+{% extends 'application/base.html' %}
+{%load static %}
+{% block main_content %}
+      <div class="card">
+        <h5 class="card-header">Donors Detail</h5>
+        <div class="card-body">
+          <p class="card-text">
+            {% if data.donor %}
+                Name: {{ data.donor.donor_name }} <br>
+                Blood Group: {{ data.donor.blood_group }}<br>
+                Location: {{ data.donor.location }}<br>
+                Mobile: {{ data.donor.mobile }}<br>
+                Added Date: {{ data.donor.added_date }}<br>
+                <a href="{% url 'application:update_donor' %}?donor_id={{data.donor.id}}" class="btn btn-success">Update Donor Info</a>
+                {% else %}
+              No matching records found!!!
+            {% endif %}
+          </p>
+        </div>
+      </div>
+
+{% endblock %}

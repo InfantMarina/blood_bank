@@ -1,0 +1,48 @@
+{% extends 'application/base.html' %}
+{% load static %}
+
+{% block main_content %}
+<div class="card">
+    <div class="card-header">
+        Update Donor Information
+    </div>
+    <div class="card-body">
+        <div class="card-text">
+            <!--  Handle status and message           -->
+            {% if data %}
+                {% if data.status == 'success' %}
+                    <!-- <div class="alert alert-success" role="alert">
+                        {{ data.message }}
+                    </div> -->
+                {% else %}
+                    <div class="alert alert-danger" role="alert">
+                      {{ data.message }}
+                    </div>
+                {% endif %}
+            {% endif %}
+            <form method="post" action="{% url 'application:update_donor' %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="donor_id" value='{{ data.donor.id }}'>
+                  <div class="form-group">
+                    <label for="donor_name">Donor Name</label>
+                    <input type="text" class="form-control" id="donor_name" name="donor_name" value="{{ data.donor.donor_name }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" value="{{ data.donor.location }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="mobile_no">Mobile Number</label>
+                    <input type="text" class="form-control" id="mobile_no" name="mobile_no" value="{{ data.donor.mobile }}">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="blood_group">Blood Group</label>
+                    <input type="text" class="form-control" id="blood_group" name="blood_group" value="{{ data.donor.blood_group }}">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Update Donor</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

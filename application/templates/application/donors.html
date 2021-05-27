@@ -1,0 +1,22 @@
+{% extends 'application/base.html' %}
+{%load static %}
+{% block main_content %}
+      <div class="card">
+        <h5 class="card-header">Donors List</h5>
+        <div class="card-body">
+          <p class="card-text">
+            {% if data %}
+              {% for donor in data %}
+                Name: {{ donor.donor_name }} <br>
+                Blood Group: {{ donor.blood_group }} <br>
+                View Info: <a href="{% url 'application:donor_detail'%}?donor_id={{ donor.id }}">View Info</a>
+                <hr>
+              {% endfor %}
+            {% else %}
+              No matching records found!!!
+            {% endif %}
+          </p>
+        </div>
+      </div>
+
+{% endblock %}

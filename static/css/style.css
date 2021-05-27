@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.rightside_menu{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.rightside_menu li{
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  border: 2px solid #FFF;
+  border-radius: 50px;
+  background-color: gray;
+  text-decoration: none;
+}
+
+.rightside_menu li:hover{
+  border: 2px solid #FFF;
+  box-shadow: 1px 1px 10px #000;
+}
+.rightside_menu a{
+  color: #FFF;
+  text-decoration: none;
+}
